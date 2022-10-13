@@ -1,0 +1,6 @@
+//This file tells VS code to treat this project as a JavaScript project, otherwise it treats it as a TypeScript project.
+
+//This code tells intellisense to exclude the node_modules folder, otherwise intellisense might be slow on your machine.
+{
+    "exclude": ["node_modules"]
+}
