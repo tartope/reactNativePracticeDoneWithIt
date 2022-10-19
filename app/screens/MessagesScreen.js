@@ -1,10 +1,11 @@
 import React from 'react';
-import { FlatList, SafeAreaView, StyleSheet, Platform, StatusBar } from 'react-native';
+import { FlatList, SafeAreaView, StyleSheet, Platform, StatusBar, View } from 'react-native';
 //Gives information about the current platform.
 import Constants from 'expo-constants';
 
 import Screen from '../components/Screen';
 import ListItem from '../components/ListItem';
+import ListItemSeparator from '../components/ListItemSeparator';
 
 const messages = [
     {
@@ -27,7 +28,17 @@ function MessagesScreen(props) {
             <FlatList 
             data={messages}
             keyExtractor={message => message.id.toString()} 
-            renderItem={({ item })=> <ListItem title={item.title} description={item.description} image={item.image}/>} />
+            renderItem={({ item })=> (
+                <ListItem 
+                title={item.title} 
+                description={item.description} 
+                image={item.image} 
+                onPress={()=> console.log('message selected', item)}
+                />
+            )}
+            ItemSeparatorComponent={ListItemSeparator}
+            />
+            
         </Screen>
     );
 }
