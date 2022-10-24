@@ -7,6 +7,9 @@ import ViewImageScreen from "./app/screens/ViewImageScreen";
 import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
 import MessagesScreen from './app/screens/MessagesScreen';
 import Card from './app/components/Card';
+import Screen from './app/components/Screen';
+import Icon from './app/components/Icon';
+import ListItem from './app/components/ListItem';
 
 export default function App() {
 
@@ -14,7 +17,15 @@ export default function App() {
     // <WelcomeScreen />
     // <ViewImageScreen />
     // <ListingDetailsScreen />
-    <MessagesScreen />
+    //<MessagesScreen />
+    <Screen>
+      <ListItem 
+        title='My title' 
+        
+        ImageComponent={<Icon name='email' />}
+      />
+    </Screen>
+
     // <View style={{
     //   backgroundColor: '#f8f4f4',
     //   padding: 20,
