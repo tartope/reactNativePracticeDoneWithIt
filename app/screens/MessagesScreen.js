@@ -37,17 +37,17 @@ function MessagesScreen(props) {
     return (
         <Screen>
             <FlatList 
-            data={messages}
-            keyExtractor={message => message.id.toString()} 
-            renderItem={({ item })=> (
-                <ListItem 
-                title={item.title} 
-                description={item.description} 
-                image={item.image} 
-                onPress={()=> console.log('message selected', item)}
-                renderRightActions={()=> 
-                <ListItemDeleteAction onPress={()=> handleDelete(item)}/>}
-                />
+                data={messages}
+                keyExtractor={message => message.id.toString()} 
+                renderItem={({ item })=> (
+                    <ListItem 
+                    title={item.title} 
+                    description={item.description} 
+                    image={item.image} 
+                    onPress={()=> console.log('message selected', item)}
+                    renderRightActions={()=> 
+                    <ListItemDeleteAction onPress={()=> handleDelete(item)}/>}
+                    />
             )}
             ItemSeparatorComponent={ListItemSeparator}
             refreshing={refreshing}

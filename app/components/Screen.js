@@ -3,10 +3,10 @@ import React from 'react';
 import Constants from 'expo-constants';
 import { SafeAreaView, StyleSheet } from 'react-native';
 
-function Screen({ children }) {
+function Screen({ children, style }) {
     return (
         //Similar to 'AppText.js'; use the 'Screen' component exactly like 'SafeAreaView'.
-        <SafeAreaView style={styles.screen}>
+        <SafeAreaView style={[styles.screen, style]}>
             {children}
         </SafeAreaView>
     );

@@ -6,17 +6,18 @@ import Swipeable from 'react-native-gesture-handler/Swipeable';
 
 import colors from '../config/colors';
 
-function ListItem({image, title, subTitle, ImageComponent, onPress, renderRightActions }) {
+//capitalized ImageComponent b/c it should be set to a real component
+function ListItem({image, title, subTitle, IconComponent, onPress, renderRightActions }) {
     return (
         <Swipeable renderRightActions={renderRightActions}>
             <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
                 <View style={styles.container}>
-                    {ImageComponent}
-                    {/* conditional statement to remove the empty space if there's no image */}
+                    {IconComponent}
+                    {/* renders image component only if we have the image prop; conditional statement to remove the empty space if there's no image */}
                     {image && <Image style={styles.image} source={image} />}
                     <View style={styles.detailsContainer}>
                         <AppText style={styles.title}>{title}</AppText>
-                        {/* conditionally renders subTitle */}
+                        {/* renders subTitle only if we have the subTitle prop; conditionally renders subTitle */}
                         {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
                     </View>
                 </View>
@@ -28,10 +29,12 @@ function ListItem({image, title, subTitle, ImageComponent, onPress, renderRightA
 const styles = StyleSheet.create({
     container:{
         flexDirection: 'row',
-        padding: 15
+        padding: 15,
+        backgroundColor: colors.white
     },
     detailsContainer:{
         marginLeft: 10,
+        //if no subTitle, justifies content to center
         justifyContent: 'center'
     },
     image: {
