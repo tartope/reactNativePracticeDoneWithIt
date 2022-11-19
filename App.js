@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import { StatusBar } from 'expo-status-bar';
 import { View, StatusBar } from 'react-native';
 
@@ -12,8 +12,11 @@ import Icon from './app/components/Icon';
 import ListItem from './app/components/ListItem';
 import AccountScreen from "./app/screens/AccountScreen";
 import ListingsScreen from "./app/screens/ListingsScreen";
+import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
+
+  const [firstName, setFirstName] = useState('');
 
   return (
     // <WelcomeScreen />
@@ -28,7 +31,10 @@ export default function App() {
     //   />
     // </Screen>
     // <AccountScreen />
-    <ListingsScreen />
+    // <ListingsScreen />
+    <Screen>
+      <AppTextInput placeholder='Username' icon='email' />
+    </Screen>
 
     // <View style={{
     //   backgroundColor: '#f8f4f4',
