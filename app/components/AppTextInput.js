@@ -2,23 +2,23 @@ import React from 'react';
 import { TextInput, View, StyleSheet} from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import colors from '../config/colors';
+import defaultStyles from '../config/styles';
 
 //use the rest operator to get the other props and put them inside a single object
 function AppTextInput({ icon, ...otherProps }) {
     return (
         <View style={styles.container} >
             {/* makes the icon optional with conditional rendering */}
-            {icon && <MaterialCommunityIcons name={icon} size={20} color={colors.medium} style={styles.icon} />}
-            {/* use spread operator to add other props */}
-            <TextInput style={styles.textInput} {...otherProps} />
+            {icon && <MaterialCommunityIcons name={icon} size={20} color={defaultStyles.colors.medium} style={styles.icon} />}
+            {/* import default styles from styles file; use spread operator to add other props */}
+            <TextInput style={defaultStyles.text} {...otherProps} />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: colors.light,
+        backgroundColor: defaultStyles.colors.light,
         //give rounded corners
         borderRadius: 25,
         //so icon and text input are laid out horizontally
@@ -32,11 +32,6 @@ const styles = StyleSheet.create({
     },
     icon:{
         marginRight: 10
-    },
-    textInput: {
-        color: colors.dark,
-        fontSize: 18,
-        fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir'
     }
 })
 
